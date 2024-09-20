@@ -1,0 +1,333 @@
+@import url('https://fonts.googleapis.com/css2?family=Noto+Sans+KR:wght@100..900&display=swap');
+
+html, body{
+  font-family: "Noto Sans KR", sans-serif;
+  color: #333;
+}
+
+.header{
+  background-color: #fff;
+  border-bottom: 1px solid #ddd;
+}
+.h_top{
+  height: 36px;
+  background-color: #eee;
+}
+.gnb{
+  height: 100%;
+  display: flex;
+  justify-content: end;
+  margin-right: 15px;
+  font-size: 13px;
+}
+.gnb>li{
+  /* before 요소랑 세로 나란히 정렬하려고 flex */
+  display: flex;
+  align-items: center;
+  /* lang_list absolute용 */
+  position: relative;
+  height: 36px;
+}
+.gnb>li>a{
+  padding: 0 10px;
+}
+.gnb>li:nth-child(1)~li::before{
+  content: "";
+  height: 10px;
+  border-left: 1px solid #999;
+}
+.lang_btn{
+  font-size: 12px;
+  color: #333;
+  padding: 0 15px;
+}
+.lang_btn::after{
+  content: "▼";
+  color: #999;
+  padding: 0 3px;
+  font-size: 10px;
+}
+.lang_list{
+  position: absolute;
+  background-color: #fff;
+  border: 1px solid #ddd;
+  top: 36px;
+  width: 100px;
+  text-align: center;
+  line-height: 30px;
+  display: none;
+  /* hicon2 위치보다 높게하기위해서 */
+  z-index: 2;
+}
+.lang_list>li>a{
+  display: block;
+}
+.lang_list>li:nth-child(1)~li{
+  border-top: 1px solid #ddd;
+}
+.gnb>li:hover .lang_list{
+  display: block;
+}
+
+
+.h_bottom{
+  height: 70px;
+  position: relative;
+}
+/* logo, h_icons 는 반응형때도 크기 그대로이니 absolute로 만듦 */
+.logo{
+  position: absolute;
+  left: 20px;
+  top: 0;
+  height: 100%;
+  display: flex;
+  align-items: center;
+}
+.menu{
+  height: 100%;
+  display: flex;
+  align-items: center;
+  padding: 0 220px;
+  max-width: 1280px;
+  margin: 0 auto;
+}
+.menu>li{
+  flex: 1;
+  display: flex;
+  align-items: center;
+  /* submenu absolute용 */
+  position: relative;
+}
+.menu>li>a{
+  text-align: center;
+  display: block;
+  font-size: 18px;
+  font-weight: 500;
+  width: 100%;
+  line-height: 70px;
+}
+.menu>li:nth-child(1)~li::before{
+  content: "";
+  height: 20px;
+  border-left: 1px solid #999;
+}
+.submenu{
+  position: absolute;
+  top: 70px;
+  font-weight: 300;
+  font-size: 14px;
+  line-height: 30px;
+  background-color: #3c4755;
+  color: #fff;
+  width: 100%;
+  height: 330px;
+  padding: 20px 0;
+  z-index: 2;
+}
+.submenu>li>a{
+  display: block;
+  padding-left: 15px;
+}
+.menu>li:hover .submenu{
+  background-color: #f8fcff;
+  color: #333;
+  font-weight: 400;
+  border-top: 6px solid mediumturquoise;
+  top: 65px;
+}
+.submenu>li>a:hover{
+  background-color: #154283;
+  color: #fff;
+}
+
+.h_icons{
+  position: absolute;
+  right: 20px;
+  top: 0;
+  height: 100%;;
+  display: flex;
+  align-items: center;
+}
+.h_icons>li:nth-child(1){
+  background-color: #154283;
+  color: #fff;
+}
+.h_icons>li:nth-child(1)>a{
+  display: block;
+  padding: 5px 10px;
+}
+.h_icons>li{
+  margin-left: 10px;
+}
+.sub_bg{
+  /* submenu의 높이와 동일하게 설정 */
+  height: 372px;
+  width: 100%;
+  background-color: #3c4755;
+  position: absolute;
+  z-index: 1;
+}
+.sub_bg_wrap{
+  background: url(../imgs/sub_bg.png) no-repeat left bottom;
+  width: 100%;
+  max-width: 1780px;
+  margin: 0 auto;
+  height: 100%;
+}
+.sub_bg_title{
+  width: 100%;
+  max-width: 1650px;
+  margin: 0 auto;
+  padding: 20px 10px;
+}
+
+
+/* header 미디어쿼리 */
+@media all and (max-width: 1023px){
+  .menu, .h_icons{
+    display: none;
+  }
+  .h_bottom{
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+  }
+  .logo{
+    position: static;
+    margin-left: 15px;
+  }
+  .m_btn{
+    margin-right: 15px;
+    background: none;
+  }
+
+  /* m_nav 부분 */
+  .m_nav{
+    position: fixed;
+    width: 100%;
+    height: 100vh;
+    overflow: hidden;
+    display: flex;
+    left: 0;
+    top: 0;
+  }
+  .m_nav_bg{
+    width: 100%;
+    height: 100%;
+    background-color: rgba(0, 0, 0, 0.3);
+  }
+  .m_menu_wrap{
+    width: 310px;
+    background-color: #fff;
+    height: 100%;
+    position: absolute;
+    right: -310px;
+    top: 0;
+  }
+  .m_gnb{
+    background-color: #154283;
+    color: #fff;
+    display: flex;
+    height: 60px;
+    align-items: center;
+  }
+  .m_gnb>li{
+    margin-left: 15px;
+    font-size: 13px;
+    position: relative;
+    display: flex;
+    align-items: center;
+    height: 25px;
+  }
+  .m_gnb>li:last-child::before{
+    content: "";
+    height: 10px;
+    border-left: 1px solid #fff;
+  }
+  .m_gnb>li:nth-child(2){
+    margin-left: 25px;
+  }
+  .m_gnb>li:hover .lang_list{
+    display: block;
+    color: #333;
+    top: 25px;
+  }
+  .m_gnb .lang_btn{
+    background: none;
+    color: #fff;
+  }
+  .m_gnb .lang_btn::after{
+    color: #fff;
+  }
+  .m_close{
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    width: 40px;
+    height: 40px;
+    position: fixed;
+    right: 10px;
+    top: 10px;
+    cursor: pointer;
+  }
+  .m_close>span{
+    width: 70%;
+    border-top: 1px solid #fff;
+    position: absolute;
+    transform-origin: center center;
+  }
+  .m_close>span:nth-child(1){
+    transform: rotate(45deg);
+  }
+  .m_close>span:nth-child(2){
+    transform: rotate(-45deg);
+  }
+
+  /* m_menu 부분 */
+  .m_menu{
+    overflow: auto;
+    height: 100%;
+  }
+  .m_menu>li{
+
+  }
+  .m_menu>li>a{
+    display: block;
+    padding-left: 20px;
+    line-height: 50px;
+    font-size: 18px;
+    font-weight: 500;
+    border-bottom: 1px solid #ccc8;
+  }
+  .m_submenu{
+    background-color: #eee;
+    color: #333;
+  }
+  .m_submenu a{
+    display: block;
+    padding-left: 20px;
+    line-height: 40px;
+    font-size: 15px;
+    font-weight: 300;
+    border-bottom: 1px solid #ddd7;
+  }
+  .active{
+    background-color: #154283;
+    color: #fff;
+  }
+}
+@media all and (max-width: 767px){
+  .h_bottom{
+    height: 60px;
+  }
+  .logo img{
+    height: 36px;
+  }
+}
+@media all and (min-width: 1024px){
+  .mobile{
+    display: none;
+  }
+}
+
+
