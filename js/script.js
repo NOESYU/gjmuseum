@@ -1,3 +1,4 @@
+// header
 $(".submenu, .sub_bg").hide();
 
 $(".menu>li").mouseover(function(){
@@ -29,3 +30,22 @@ $(".m_menu>li").click(function(){
   $(this).toggleClass("active");
   $(this).siblings().removeClass("active");
 })
+
+
+
+// main slide
+const main = new Swiper(".main>.swiper",{
+  loop: true, // 슬라이드 순환
+  navigation: {
+    prevEl: ".main_prev",
+    nextEl: ".main_next",
+  },
+  autoplay: {
+    delay: 2500,
+    disableOnInteraction: false,
+  },
+  pagination: {
+    el: ".main .swiper-pagination",
+    clickable: true,
+  }
+});

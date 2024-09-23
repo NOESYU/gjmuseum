@@ -225,7 +225,7 @@ html, body{
     top: 0;
   }
   .m_gnb{
-    background-color: #154283;
+    background-color: #20528c;
     color: #fff;
     display: flex;
     height: 60px;
@@ -288,16 +288,21 @@ html, body{
     overflow: auto;
     height: 100%;
   }
-  .m_menu>li{
-
-  }
   .m_menu>li>a{
-    display: block;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
     padding-left: 20px;
-    line-height: 50px;
+    line-height: 55px;
     font-size: 18px;
     font-weight: 500;
     border-bottom: 1px solid #ccc8;
+  }
+  .m_menu>li>a::after{
+    content: "";
+    border: 1px solid #fff;
+    width: 15px;
+    margin-right: 20px;
   }
   .m_submenu{
     background-color: #eee;
@@ -306,7 +311,7 @@ html, body{
   .m_submenu a{
     display: block;
     padding-left: 20px;
-    line-height: 40px;
+    line-height: 55px;
     font-size: 15px;
     font-weight: 300;
     border-bottom: 1px solid #ddd7;
@@ -331,3 +336,90 @@ html, body{
 }
 
 
+
+/* main slide */
+/* 다른곳에서도 slide 쓸 예정이니 .main 계속 작성 */
+.main{
+  width: 100%;
+  display: flex;
+  justify-content: center;
+}
+.main .swiper{
+  max-width: 1240px;
+}
+.main .swiper-slide img{
+  width: 100%;
+  height: 100%;
+  display: block;
+}
+.main_prev, .main_next{
+  position: absolute;
+  z-index: 3;
+  top: 45%;
+  cursor: pointer;
+}
+.main_prev{
+  left: 0;
+}
+.main_next{
+  right: 0;
+}
+/* slide pagination css */
+.main .swiper-pagination{
+  bottom: auto;
+  top: 15%;
+  width: 40%;
+  text-align: left;
+  left: 60%;
+  display: flex;
+}
+.main .swiper-pagination-bullet{
+  background: none;
+  opacity: 1;
+  /* border-radius: 0%; */
+  display: flex;
+  width: auto;
+  align-items: center;
+  margin: 0 !important;
+}
+/* pagenation 의 선 부분 */
+.main .swiper-pagination-bullet::before{
+  content: "";
+  display: block;
+  width: 30px;
+  border-top: 1px solid #fff;
+}
+.main .swiper-pagination-bullet:nth-child(1)::before{
+  width: 0;
+}
+/* pagenation 네모 부분 */
+.main .swiper-pagination-bullet::after{
+  content: "";
+  width: 8px;
+  height: 8px;
+  background-color: #fff;
+}
+.main .swiper-pagination-bullet-active::after{
+  content: "";
+  border: 3px solid #fff;
+  background: none;
+}
+/* 재생/일시정지 부분 */
+.main_ctrls{
+  position: absolute;
+  top: 14%;
+  right: 27%;
+  z-index: 3;
+  background-color: rgba(0, 0, 0, 0.3);
+  width: 20px;
+  height: 20px;
+  cursor: pointer;
+}
+.main_pause, .main_play{
+  position: absolute;
+  width: 100%;
+  height: 100%;
+}
+.main_play{
+  display: none;
+}
