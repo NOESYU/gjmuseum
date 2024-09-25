@@ -48,4 +48,15 @@ const main = new Swiper(".main>.swiper",{
     el: ".main .swiper-pagination",
     clickable: true,
   }
-});
+}); /* main slide swiper end */
+
+$(".main_pause").click(function(){
+  $(".main_pause").hide();
+  $(".main_play").show();
+  main.autoplay.pause();
+})
+$(".main_play").click(function(){
+  $(".main_pause").show();
+  $(".main_play").hide();
+  main.autoplay.start();
+})
