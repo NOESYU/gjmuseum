@@ -60,3 +60,31 @@ $(".main_play").click(function(){
   $(".main_play").hide();
   main.autoplay.start();
 })
+
+
+const box1 = new Swiper(".box1>.swiper", {
+  loop: true,
+  autoplay: {
+    delay: 2500,
+    disableOnInteraction: false,
+  },
+  pagination: {
+    el: ".box1 .swiper-pagination",
+    clickable: true,
+    type: "fraction",
+  },
+  navigation: {
+    prevEl: ".box1_prev",
+    nextEl: ".box1_next",
+  }
+})
+$(".box1_pause").click(function(){
+  $(".box1_pause").hide();
+  $(".box1_play").show();
+  box1.autoplay.pause();
+})
+$(".box1_play").click(function(){
+  $(".box1_pause").show();
+  $(".box1_play").hide();
+  box1.autoplay.start();
+})
