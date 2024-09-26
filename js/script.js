@@ -88,3 +88,18 @@ $(".box1_play").click(function(){
   $(".box1_play").hide();
   box1.autoplay.start();
 })
+
+$(".notice2").hide();
+$(".tab_title>li:nth-child(2)").click(function(){
+  $(this).addClass("tab_active");
+  $(this).siblings().removeClass("tab_active");
+  $(".notice2").show();
+  $(".notice1").hide();
+})
+
+$(".tab_title>li:nth-child(1)").click(function(){
+  $(this).addClass("tab_active");
+  $(this).siblings().removeClass("tab_active");
+  $(".notice1").show();
+  $(".notice2").hide();
+})
